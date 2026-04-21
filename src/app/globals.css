@@ -2,25 +2,99 @@
 
 :root {
   --background: #ffffff;
-  --foreground: #171717;
+  --foreground: #000000;
+  
+  --primary: #0ca4da;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #006395;
+  --secondary-foreground: #ffffff;
+  
+  --muted: #f4f4f5;
+  --muted-foreground: #737373;
+  
+  --accent: #f4f4f5;
+  --accent-foreground: #000000;
+  
+  --border: #e5e5e5;
+  --input: #e5e5e5;
+  --card: #ffffff;
+  --card-foreground: #000000;
 }
+
+.dark {
+  --background: #000000;
+  --foreground: #ffffff;
+  
+  --primary: #0ca4da;
+  --primary-foreground: #ffffff;
+  
+  --secondary: #006395;
+  --secondary-foreground: #ffffff;
+  
+  --muted: #111111;
+  --muted-foreground: #a3a3a3;
+  
+  --accent: #111111;
+  --accent-foreground: #ffffff;
+  
+  --border: #222222;
+  --input: #222222;
+  --card: #050505;
+  --card-foreground: #ffffff;
+}
+
 
 @theme inline {
   --color-background: var(--background);
   --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+  --color-primary: var(--primary);
+  --color-primary-foreground: var(--primary-foreground);
+  --color-secondary: var(--secondary);
+  --color-secondary-foreground: var(--secondary-foreground);
+  --color-muted: var(--muted);
+  --color-muted-foreground: var(--muted-foreground);
+  --color-accent: var(--accent);
+  --color-accent-foreground: var(--accent-foreground);
+  --color-border: var(--border);
+  --color-input: var(--input);
+  --color-card: var(--card);
+  --color-card-foreground: var(--card-foreground);
+  
+  --font-sans: var(--font-geist-sans), ui-sans-serif, system-ui, sans-serif;
+  --font-mono: var(--font-geist-mono), ui-monospace, SFMono-Regular, Menlo, Monaco, Consolas, "Liberation Mono", "Courier New", monospace;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
+@layer base {
+  * {
+    border-color: var(--border);
+  }
+  body {
+    background-color: var(--background);
+    color: var(--foreground);
+    @apply antialiased;
   }
 }
 
-body {
+/* Scrollbar utilities */
+::-webkit-scrollbar {
+  width: 8px;
+}
+::-webkit-scrollbar-track {
   background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+}
+::-webkit-scrollbar-thumb {
+  background: var(--border);
+  border-radius: 4px;
+}
+::-webkit-scrollbar-thumb:hover {
+  background: var(--muted-foreground);
+}
+
+.glass {
+  @apply bg-background/40 backdrop-blur-xl border-b border-foreground/5;
+}
+
+.glass-card {
+  @apply bg-foreground/5 backdrop-blur-md border border-foreground/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)];
 }
