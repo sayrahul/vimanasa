@@ -45,7 +45,7 @@ export default function ContactPage() {
                     <MapPin size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-lg">Registered Office</h3>
+                    <h3 className="font-semibold text-foreground text-lg">Registered Office</h3>
                     <p className="mt-1 leading-relaxed">227, Undegaon, Post Kodri, Taluka Gangakhed,<br/>Dist Parbhani, MH - 431514</p>
                   </div>
                 </li>
@@ -54,7 +54,7 @@ export default function ContactPage() {
                     <Building size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-lg">Corporate Office</h3>
+                    <h3 className="font-semibold text-foreground text-lg">Corporate Office</h3>
                     <p className="mt-1 leading-relaxed">Nath Valley Road, Kanchanwadi,<br/>Chhatrapati Sambhajinagar (Aurangabad) 431001</p>
                   </div>
                 </li>
@@ -63,7 +63,7 @@ export default function ContactPage() {
                     <Phone size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-lg">Phone Numbers</h3>
+                    <h3 className="font-semibold text-foreground text-lg">Phone Numbers</h3>
                     <p className="mt-1 leading-relaxed">+91 77980 21323<br/>+91 95959 97711</p>
                   </div>
                 </li>
@@ -72,7 +72,7 @@ export default function ContactPage() {
                     <Mail size={24} />
                   </div>
                   <div>
-                    <h3 className="font-semibold text-white text-lg">Email Address</h3>
+                    <h3 className="font-semibold text-foreground text-lg">Email Address</h3>
                     <p className="mt-1 leading-relaxed">vimanasaservices@gmail.com</p>
                   </div>
                 </li>
@@ -104,7 +104,7 @@ export default function ContactPage() {
               <p className="text-muted-foreground mb-4">Fill out the form below and we'll get back to you within 24 hours.</p>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="name" className="text-sm font-medium text-white/80">Full Name</label>
+                <label htmlFor="name" className="text-sm font-medium text-foreground/80">Full Name</label>
                 <input 
                   type="text" 
                   id="name" 
@@ -116,7 +116,7 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="email" className="text-sm font-medium text-white/80">Email Address</label>
+                <label htmlFor="email" className="text-sm font-medium text-foreground/80">Email Address</label>
                 <input 
                   type="email" 
                   id="email" 
@@ -128,24 +128,24 @@ export default function ContactPage() {
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="subject" className="text-sm font-medium text-white/80">Subject Category</label>
+                <label htmlFor="subject" className="text-sm font-medium text-foreground/80">Subject Category</label>
                 <select 
                   id="subject" 
                   name="subject" 
                   required
-                  className="bg-background border border-border rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all text-white/90"
+                  className="bg-background border border-border rounded-xl px-4 py-4 focus:ring-2 focus:ring-primary/50 focus:outline-none transition-all text-foreground/90"
                 >
-                  <option value="">Select a subject...</option>
-                  <option value="manpower">Manpower Outsourcing Request</option>
-                  <option value="telecom">Telecommunications Inquiry</option>
-                  <option value="it">IT & Web Services</option>
-                  <option value="tender">Government Tender Connect</option>
-                  <option value="other">Other General Inquiry</option>
+                  <option value="" className="text-foreground">Select a subject...</option>
+                  <option value="manpower" className="text-foreground">Manpower Outsourcing Request</option>
+                  <option value="telecom" className="text-foreground">Telecommunications Inquiry</option>
+                  <option value="it" className="text-foreground">IT & Web Services</option>
+                  <option value="tender" className="text-foreground">Government Tender Connect</option>
+                  <option value="other" className="text-foreground">Other General Inquiry</option>
                 </select>
               </div>
 
               <div className="flex flex-col gap-2">
-                <label htmlFor="message" className="text-sm font-medium text-white/80">Your Message</label>
+                <label htmlFor="message" className="text-sm font-medium text-foreground/80">Your Message</label>
                 <textarea 
                   id="message" 
                   name="message" 

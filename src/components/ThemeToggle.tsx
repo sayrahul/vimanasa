@@ -4,6 +4,7 @@ import * as React from "react";
 import { Moon, Sun } from "lucide-react";
 import { useTheme } from "next-themes";
 import { motion } from "framer-motion";
+import { cn } from "@/lib/utils";
 
 export function ThemeToggle() {
   const { theme, setTheme, resolvedTheme } = useTheme();
@@ -20,34 +21,23 @@ export function ThemeToggle() {
   return (
     <button
       onClick={() => setTheme(isDark ? "light" : "dark")}
-      className="relative flex items-center justify-center w-10 h-10 rounded-full bg-foreground/5 border border-foreground/10 hover:bg-foreground/10 transition-colors shadow-inner group overflow-hidden"
+      className="relative flex items-center justify-center w-10 h-10 rounded-full bg-muted border border-border hover:bg-accent hover:text-accent-foreground transition-all shadow-sm group overflow-hidden"
       aria-label="Toggle theme"
     >
-      <motion.div
-        initial={false}
-        animate={{
-          scale: isDark ? 1 : 0,
-          opacity: isDark ? 1 : 0,
-          rotate: isDark ? 0 : 90,
-        }}
-        transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="absolute inset-0 flex items-center justify-center text-foreground"
-      >
-        <Moon size={18} />
-      </motion.div>
-      
-      <motion.div
-        initial={false}
-        animate={{
-          scale: isDark ? 0 : 1,
-          opacity: isDark ? 0 : 1,
-          rotate: isDark ? -90 : 0,
-        }}
-        transition={{ type: "spring", stiffness: 200, damping: 20 }}
-        className="absolute inset-0 flex items-center justify-center text-foreground"
-      >
-        <Sun size={18} />
-      </motion.div>
+      <div className="relative w-full h-full flex items-center justify-center">
+        <Sun 
+          className={cn(
+            "h-[1.2rem] w-[1.2rem] transition-all",
+            isDark ? "rotate-90 scale-0 opacity-0" : "rotate-0 scale-100 opacity-100 text-amber-500"
+          )} 
+        />
+        <Moon 
+          className={cn(
+            "absolute h-[1.2rem] w-[1.2rem] transition-all",
+            isDark ? "rotate-0 scale-100 opacity-100 text-blue-400" : "-rotate-90 scale-0 opacity-0"
+          )} 
+        />
+      </div>
     </button>
   );
 }

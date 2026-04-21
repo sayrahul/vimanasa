@@ -14,18 +14,8 @@ const JOB_LISTINGS = [
   { id: 6, title: "Digital Marketing Specialist", category: "IT Agency", location: "Remote", type: "Full-Time", experience: "2-4 Years", description: "Develop and execute digital marketing campaigns. Optimize SEO, manage ad spend, and increase overall brand visibility for our clients." },
 ];
 
-const CATEGORIES = ["All", "Telecom", "Manpower", "IT Agency"];
-
 export default function JobsPage() {
-  const [searchTerm, setSearchTerm] = useState("");
-  const [filter, setFilter] = useState("All");
   const [selectedJob, setSelectedJob] = useState<typeof JOB_LISTINGS[0] | null>(null);
-
-  const filteredJobs = JOB_LISTINGS.filter(job => {
-    const matchesSearch = job.title.toLowerCase().includes(searchTerm.toLowerCase());
-    const matchesFilter = filter === "All" || job.category === filter;
-    return matchesSearch && matchesFilter;
-  });
 
   return (
     <div className="relative min-h-screen bg-background overflow-hidden pb-32">
@@ -73,132 +63,55 @@ export default function JobsPage() {
           </motion.p>
         </div>
 
-        {/* Layout Split: Left Sticky (Filters & Stats) + Right Scroll (Jobs) */}
-        <div className="flex flex-col lg:flex-row gap-12 relative z-10">
-          
-          <div className="lg:w-1/3 flex flex-col gap-8">
-            <div className="sticky top-32 space-y-8">
-              {/* Search Box */}
-              <div className="bg-background/50 backdrop-blur-xl border border-foreground/5 rounded-3xl p-6 shadow-2xl shadow-black/5">
-                <h3 className="text-lg font-bold mb-4">Find your role</h3>
-                <div className="relative">
-                  <Search className="absolute left-4 top-1/2 -translate-y-1/2 text-muted-foreground" size={20} />
-                  <input 
-                    type="text" 
-                    placeholder="Search by title..." 
-                    value={searchTerm}
-                    onChange={(e) => setSearchTerm(e.target.value)}
-                    className="w-full bg-foreground/5 border border-foreground/10 rounded-2xl py-4 pl-12 pr-4 focus:outline-none focus:ring-2 focus:ring-primary/50 text-foreground transition-all"
-                  />
-                </div>
-              </div>
-
-              {/* Category Filter */}
-              <div className="bg-background/50 backdrop-blur-xl border border-foreground/5 rounded-3xl p-6 shadow-2xl shadow-black/5">
-                <h3 className="text-lg font-bold mb-4">Divisions</h3>
-                <div className="flex flex-col gap-2">
-                  {CATEGORIES.map(cat => (
-                    <button
-                      key={cat}
-                      onClick={() => setFilter(cat)}
-                      className={cn(
-                        "relative w-full flex items-center justify-between px-5 py-4 rounded-2xl font-medium transition-all duration-300 overflow-hidden group",
-                        filter === cat 
-                          ? "text-white" 
-                          : "bg-transparent text-muted-foreground hover:text-foreground hover:bg-foreground/5"
-                      )}
-                    >
-                      {filter === cat && (
-                        <motion.div 
-                          layoutId="activeCategory"
-                          className="absolute inset-0 bg-gradient-to-r from-primary to-secondary z-0"
-                          transition={{ type: "spring", stiffness: 300, damping: 30 }}
-                        />
-                      )}
-                      <span className="relative z-10">{cat}</span>
-                      <ChevronRight size={18} className={cn("relative z-10 transition-transform duration-300", filter === cat ? "opacity-100 translate-x-0" : "opacity-0 -translate-x-4")} />
-                    </button>
-                  ))}
-                </div>
-              </div>
-              
-              {/* Quick Stats */}
-              <div className="hidden lg:grid grid-cols-2 gap-4">
-                <div className="bg-primary/5 border border-primary/20 rounded-3xl p-6 flex flex-col items-center justify-center text-center">
-                  <Building size={32} className="text-primary mb-3" />
-                  <span className="text-3xl font-black text-foreground">3</span>
-                  <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Divisions</span>
-                </div>
-                <div className="bg-secondary/5 border border-secondary/20 rounded-3xl p-6 flex flex-col items-center justify-center text-center">
-                  <Users size={32} className="text-secondary mb-3" />
-                  <span className="text-3xl font-black text-foreground">50+</span>
-                  <span className="text-xs text-muted-foreground font-medium uppercase tracking-wider">Openings</span>
-                </div>
-              </div>
-            </div>
-          </div>
-
-          {/* Job List */}
-          <div className="lg:w-2/3 flex flex-col gap-6">
-            <AnimatePresence mode="popLayout">
-              {filteredJobs.length > 0 ? (
-                filteredJobs.map((job, idx) => (
-                  <motion.div
-                    layout
-                    key={job.id}
-                    initial={{ opacity: 0, scale: 0.9, y: 20 }}
-                    animate={{ opacity: 1, scale: 1, y: 0 }}
-                    exit={{ opacity: 0, scale: 0.9, y: -20 }}
-                    transition={{ duration: 0.3, delay: idx * 0.05 }}
-                    onClick={() => setSelectedJob(job)}
-                    className="group cursor-pointer relative bg-background/40 backdrop-blur-lg border border-foreground/10 p-6 md:p-8 rounded-3xl hover:bg-foreground/5 transition-all duration-500 overflow-hidden"
-                  >
-                    {/* Hover Gradient Overlay */}
-                    <div className="absolute inset-0 bg-gradient-to-r from-primary/0 via-primary/5 to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+        {/* Job List - Centered and Streamlined */}
+        <div className="max-w-4xl mx-auto w-full relative z-10 flex flex-col gap-6">
+          <AnimatePresence mode="popLayout">
+            {JOB_LISTINGS.map((job, idx) => (
+              <motion.div
+                layout
+                key={job.id}
+                initial={{ opacity: 0, y: 20 }}
+                animate={{ opacity: 1, y: 0 }}
+                exit={{ opacity: 0, y: -20 }}
+                transition={{ duration: 0.4, delay: idx * 0.1 }}
+                onClick={() => setSelectedJob(job)}
+                className="group cursor-pointer relative bg-card/40 backdrop-blur-lg border border-border p-6 md:p-10 rounded-[2rem] hover:bg-muted/50 transition-all duration-500 overflow-hidden shadow-xl hover:shadow-2xl hover:shadow-primary/5"
+              >
+                {/* Hover Gradient Overlay */}
+                <div className="absolute inset-0 bg-gradient-to-r from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none" />
+                
+                <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-8">
+                  <div className="flex-1">
+                    <div className="flex items-center gap-3 mb-4">
+                      <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">
+                        {job.category}
+                      </span>
+                      <span className="text-xs font-bold text-secondary uppercase tracking-widest bg-secondary/10 px-3 py-1 rounded-full">
+                        {job.type}
+                      </span>
+                    </div>
+                    <h3 className="text-3xl md:text-4xl font-bold group-hover:text-primary transition-colors duration-300 mb-3 tracking-tight">{job.title}</h3>
+                    <p className="text-muted-foreground text-lg mb-6 leading-relaxed">{job.description}</p>
                     
-                    <div className="relative z-10 flex flex-col md:flex-row md:items-center justify-between gap-6">
-                      <div className="flex-1">
-                        <div className="flex items-center gap-3 mb-3">
-                          <span className="text-xs font-bold text-primary uppercase tracking-widest bg-primary/10 px-3 py-1 rounded-full">
-                            {job.category}
-                          </span>
-                          <span className="text-xs font-bold text-secondary uppercase tracking-widest bg-secondary/10 px-3 py-1 rounded-full">
-                            {job.type}
-                          </span>
-                        </div>
-                        <h3 className="text-2xl md:text-3xl font-bold group-hover:text-primary transition-colors duration-300 mb-2">{job.title}</h3>
-                        <p className="text-muted-foreground text-sm line-clamp-2 md:line-clamp-1 mb-4">{job.description}</p>
-                        
-                        <div className="flex flex-wrap items-center gap-4 text-sm text-foreground/70 font-medium">
-                          <div className="flex items-center gap-1.5 bg-foreground/5 px-3 py-1.5 rounded-lg">
-                            <MapPin size={16} className="text-primary" />
-                            <span>{job.location}</span>
-                          </div>
-                          <div className="flex items-center gap-1.5 bg-foreground/5 px-3 py-1.5 rounded-lg">
-                            <Briefcase size={16} className="text-secondary" />
-                            <span>{job.experience}</span>
-                          </div>
-                        </div>
+                    <div className="flex flex-wrap items-center gap-5 text-sm font-semibold text-foreground/80">
+                      <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-xl">
+                        <MapPin size={18} className="text-primary" />
+                        <span>{job.location}</span>
                       </div>
-                      
-                      <div className="hidden md:flex items-center justify-center w-16 h-16 rounded-full bg-foreground/5 group-hover:bg-primary group-hover:text-white transition-colors duration-500 shrink-0 shadow-[0_0_0_rgba(12,164,218,0)] group-hover:shadow-[0_0_20px_rgba(12,164,218,0.4)]">
-                        <ChevronRight size={24} className="group-hover:translate-x-1 transition-transform duration-300" />
+                      <div className="flex items-center gap-2 bg-muted px-4 py-2 rounded-xl">
+                        <Briefcase size={18} className="text-secondary" />
+                        <span>{job.experience}</span>
                       </div>
                     </div>
-                  </motion.div>
-                ))
-              ) : (
-                <motion.div 
-                  initial={{ opacity: 0 }} animate={{ opacity: 1 }}
-                  className="w-full py-32 text-center flex flex-col items-center justify-center bg-foreground/5 border border-foreground/5 rounded-3xl"
-                >
-                  <Search className="text-muted-foreground/30 mb-6" size={80} />
-                  <h3 className="text-2xl font-bold mb-2">No matches found</h3>
-                  <p className="text-muted-foreground">Try adjusting your search criteria and categories.</p>
-                </motion.div>
-              )}
-            </AnimatePresence>
-          </div>
+                  </div>
+                  
+                  <div className="hidden md:flex items-center justify-center w-20 h-20 rounded-3xl bg-muted border border-border group-hover:bg-primary group-hover:text-white transition-all duration-500 shrink-0 shadow-inner group-hover:shadow-primary/20">
+                    <ChevronRight size={32} className="group-hover:translate-x-1 transition-transform duration-300" />
+                  </div>
+                </div>
+              </motion.div>
+            ))}
+          </AnimatePresence>
         </div>
       </div>
 

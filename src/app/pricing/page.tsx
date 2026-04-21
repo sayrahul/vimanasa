@@ -88,13 +88,13 @@ export default function PricingPage() {
               <p className="text-muted-foreground mb-6 text-sm flex-grow">{plan.description}</p>
               
               <div className="mb-8">
-                <span className="text-4xl font-extrabold text-white">{plan.price}</span>
+                <span className="text-4xl font-extrabold text-foreground">{plan.price}</span>
                 <span className="text-muted-foreground font-medium">{plan.period}</span>
               </div>
 
               <ul className="flex flex-col gap-4 mb-8">
                 {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-3 text-white/90">
+                  <li key={fIdx} className="flex items-start gap-3 text-foreground/90">
                     <Check size={20} className="text-primary shrink-0 mt-0.5" />
                     <span className="text-sm">{feature}</span>
                   </li>

@@ -11,10 +11,9 @@ import { ThemeToggle } from "@/components/ThemeToggle";
 const NAV_LINKS = [
   { name: "Home", href: "/", icon: Home },
   { name: "About Us", href: "/about", icon: User },
-  { name: "Services", href: "/services" },
-  { name: "Portfolio", href: "/portfolio", icon: LayoutGrid },
+  { name: "Services", href: "/services", icon: LayoutGrid },
+  { name: "Portfolio", href: "/portfolio", icon: Sparkles },
   { name: "Jobs", href: "/jobs", icon: Briefcase },
-  { name: "Contact", href: "/contact", icon: MessageSquare },
 ];
 
 export function Navbar() {
@@ -51,8 +50,8 @@ export function Navbar() {
           className={cn(
             "w-full max-w-6xl transition-all duration-700 rounded-2xl md:rounded-full flex items-center justify-between px-6 py-3 pointer-events-auto",
             isScrolled 
-              ? "bg-white shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-zinc-100 dark:border-white/10" 
-              : "bg-white shadow-lg border border-transparent dark:border-white/5"
+              ? "bg-background shadow-[0_8px_30px_rgba(0,0,0,0.08)] border border-border" 
+              : "bg-background shadow-lg border border-border/50"
           )}
         >
             <Link href="/" className="relative flex items-center gap-2 group shrink-0">
@@ -75,15 +74,14 @@ export function Navbar() {
               <motion.button
                 whileTap={{ scale: 0.9 }}
                 onClick={() => setIsOpen(!isOpen)}
-                className="p-2 rounded-xl bg-zinc-50 border border-zinc-100 text-zinc-900 shadow-sm"
+                className="p-2 rounded-xl bg-muted border border-border text-foreground shadow-sm"
               >
                 {isOpen ? <X size={24} /> : <Menu size={24} />}
               </motion.button>
             </div>
 
-            {/* Desktop Nav */}
             <nav className="hidden md:flex items-center gap-2">
-              <div className="flex items-center gap-1 bg-zinc-50 rounded-full p-1.5 border border-zinc-100 mr-4 shadow-inner">
+              <div className="flex items-center gap-1 bg-muted rounded-full p-1.5 border border-border mr-4 shadow-inner">
                 {NAV_LINKS.map((link) => {
                   const isActive = pathname === link.href;
                   return (
@@ -92,7 +90,7 @@ export function Navbar() {
                       href={link.href}
                       className={cn(
                         "relative px-4 lg:px-5 py-2 rounded-full text-sm font-semibold transition-all duration-300 z-10 select-none whitespace-nowrap",
-                        isActive ? "text-primary" : "text-zinc-600 hover:text-black"
+                        isActive ? "text-primary" : "text-muted-foreground hover:text-foreground"
                       )}
                     >
                       <span className="relative z-20">{link.name}</span>
@@ -117,7 +115,7 @@ export function Navbar() {
               </div>
 
               <div className="flex items-center gap-3 shrink-0">
-                <div className="bg-zinc-50 p-1 rounded-full flex items-center justify-center border border-zinc-100 shadow-inner">
+                <div className="bg-muted p-1 rounded-full flex items-center justify-center border border-border shadow-inner">
                   <ThemeToggle />
                 </div>
                 
@@ -206,13 +204,7 @@ export function Navbar() {
             {/* Shimmer background effect */}
             <div className="absolute inset-0 bg-gradient-to-r from-transparent via-white/10 dark:via-white/5 to-transparent -translate-x-[200%] animate-[shimmer_3s_infinite] pointer-events-none" />
 
-            {[
-              NAV_LINKS[0], // Home
-              NAV_LINKS[1], // About Us
-              NAV_LINKS[4], // Jobs
-              NAV_LINKS[3], // Portfolio
-              NAV_LINKS[5]  // Contact
-            ].map((link) => {
+            {NAV_LINKS.map((link) => {
               const Icon = link.icon!;
               const isActive = pathname === link.href;
 

@@ -96,19 +96,19 @@ export default function ServicesPage() {
           <AnimatePresence mode="wait">
             <motion.div
               key={activeTab}
-              initial={{ opacity: 0, y: 20 }}
-              animate={{ opacity: 1, y: 0 }}
-              exit={{ opacity: 0, y: -20 }}
-              transition={{ duration: 0.3 }}
+              initial={{ opacity: 0, scale: 0.98 }}
+              animate={{ opacity: 1, scale: 1 }}
+              exit={{ opacity: 0, scale: 1.02 }}
+              transition={{ duration: 0.4, ease: "easeOut" }}
               className={cn(
-                "absolute inset-0 rounded-3xl border border-border p-8 md:p-16 bg-gradient-to-br to-transparent",
+                "w-full rounded-[2.5rem] border border-border p-8 md:p-16 bg-gradient-to-br to-background/50 backdrop-blur-sm",
                 CONTENT[activeTab].color
               )}
             >
-              <div className="grid grid-cols-1 md:grid-cols-2 gap-12 items-center h-full">
-                <div>
-                  <h2 className="text-3xl md:text-5xl font-bold mb-6">{CONTENT[activeTab].title}</h2>
-                  <p className="text-xl text-muted-foreground leading-relaxed mb-8">
+              <div className="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+                <div className="order-2 lg:order-1">
+                  <h2 className="text-4xl md:text-5xl font-bold mb-6 tracking-tight">{CONTENT[activeTab].title}</h2>
+                  <p className="text-lg md:text-xl text-muted-foreground leading-relaxed mb-8 max-w-xl">
                     {CONTENT[activeTab].description}
                   </p>
                   <ul className="space-y-4">
@@ -117,21 +117,31 @@ export default function ServicesPage() {
                         key={idx}
                         initial={{ opacity: 0, x: -10 }}
                         animate={{ opacity: 1, x: 0 }}
-                        transition={{ delay: idx * 0.1 }}
-                        className="flex items-center gap-3 text-lg"
+                        transition={{ delay: idx * 0.1 + 0.2 }}
+                        className="flex items-center gap-4 text-base md:text-lg text-foreground/80"
                       >
-                        <CheckCircle2 className="text-primary shrink-0" size={24} />
+                        <div className="p-1 rounded-full bg-primary/10">
+                          <CheckCircle2 className="text-primary shrink-0" size={20} />
+                        </div>
                         <span>{feature}</span>
                       </motion.li>
                     ))}
                   </ul>
                 </div>
-                <div className="hidden md:flex justify-center items-center">
-                   <div className="w-full aspect-square max-w-sm rounded-[2rem] bg-black/50 border border-white/10 flex items-center justify-center shadow-2xl relative overflow-hidden">
-                     <div className="absolute inset-0 bg-primary/20 blur-[100px] rounded-full isolate" />
-                     {activeTab === 'manpower' && <Users size={120} className="text-white relative z-10 opacity-80" />}
-                     {activeTab === 'telecom' && <Server size={120} className="text-white relative z-10 opacity-80" />}
-                     {activeTab === 'it' && <Shield size={120} className="text-white relative z-10 opacity-80" />}
+                <div className="order-1 lg:order-2 flex justify-center items-center">
+                   <div className="w-full aspect-square max-w-[320px] md:max-w-sm rounded-[2.5rem] bg-muted/20 border border-border/50 flex items-center justify-center shadow-2xl relative overflow-hidden group">
+                     <div className="absolute inset-0 bg-primary/10 blur-[80px] rounded-full group-hover:bg-primary/20 transition-colors duration-500" />
+                     <motion.div
+                       key={activeTab}
+                       initial={{ opacity: 0, scale: 0.5, rotate: -10 }}
+                       animate={{ opacity: 1, scale: 1, rotate: 0 }}
+                       transition={{ type: "spring", stiffness: 100, damping: 15 }}
+                       className="relative z-10"
+                     >
+                       {activeTab === 'manpower' && <Users size={120} className="text-foreground/70" />}
+                       {activeTab === 'telecom' && <Server size={120} className="text-foreground/70" />}
+                       {activeTab === 'it' && <Shield size={120} className="text-foreground/70" />}
+                     </motion.div>
                    </div>
                 </div>
               </div>
