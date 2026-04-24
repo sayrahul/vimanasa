@@ -30,14 +30,14 @@ const TEAM = [
     name: "Sanjivan Kamble",
     role: "Managing Partner & Chief Financial Officer (CFO)",
     initial: "SK",
-    image: "/images/team/sanjivan.jpg",
+    image: null,
     color: "from-red-600 to-rose-700"
   },
   {
     name: "Rajudas Rathod",
     role: "Chief Executive Officer (CEO) & Technical Director",
     initial: "RR",
-    image: "/images/team/rajudas.jpg",
+    image: null,
     color: "from-orange-500 to-rose-500"
   },
   {
@@ -58,7 +58,7 @@ const TEAM = [
     name: "Prabhu Rathod",
     role: "Head of Corporate Affairs",
     initial: "PR",
-    image: null,
+    image: "/images/team/prabhu.jpg",
     color: "from-zinc-500 to-slate-500"
   }
 ];
