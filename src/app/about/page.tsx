@@ -1,14 +1,14 @@
 "use client";
 
 import { motion } from "framer-motion";
-import { CheckCircle2, TrendingUp, ShieldCheck, Users, Mail } from "lucide-react";
+import { CheckCircle2, TrendingUp, ShieldCheck, Users, Mail, Eye, Target, Sparkles, Zap, Award, BarChart3 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
 const VALUES = [
-  { icon: <TrendingUp className="text-secondary" />, title: "Innovation", desc: "Always pushing the boundaries of what's possible." },
-  { icon: <ShieldCheck className="text-secondary" />, title: "Reliability", desc: "Trusted by government sectors and private businesses alike." },
-  { icon: <Users className="text-secondary" />, title: "Empowerment", desc: "Lifting up communities through job creation and upskilling." },
-  { icon: <CheckCircle2 className="text-secondary" />, title: "Excellence", desc: "Delivering top-tier results in every project." }
+  { icon: <Zap className="text-primary" />, title: "Innovation", desc: "Pioneering the next generation of digital and telecommunication solutions.", color: "bg-blue-500/10" },
+  { icon: <ShieldCheck className="text-primary" />, title: "Reliability", desc: "A foundation of trust built through years of government and private sector service.", color: "bg-cyan-500/10" },
+  { icon: <Award className="text-primary" />, title: "Excellence", desc: "Unwavering commitment to top-tier quality and operational perfection.", color: "bg-indigo-500/10" },
+  { icon: <Users className="text-primary" />, title: "Empowerment", desc: "Creating opportunities and lifting communities through strategic growth.", color: "bg-violet-500/10" }
 ];
 
 const TwitterIcon = ({ size }: { size: number }) => (
@@ -85,38 +85,61 @@ export default function AboutPage() {
           </p>
         </motion.div>
 
-        <div className="grid grid-cols-1 md:grid-cols-2 gap-12 mb-24">
+        {/* Vision & Mission Section */}
+        <div className="relative grid grid-cols-1 md:grid-cols-2 gap-8 md:gap-12 mb-32">
+          {/* Background Light Effect */}
+          <div className="absolute top-1/2 left-1/2 -translate-x-1/2 -translate-y-1/2 w-full h-full bg-primary/5 blur-[120px] rounded-full -z-10 pointer-events-none" />
+          
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: -30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
-            className="rounded-3xl bg-secondary/10 border border-secondary/20 p-8 md:p-12"
+            className="group relative p-10 md:p-14 rounded-[3rem] bg-white border border-black/[0.03] shadow-[0_30px_70px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_90px_rgba(0,0,0,0.08)] transition-all duration-700 overflow-hidden"
           >
-            <h2 className="text-3xl font-bold mb-4">Our Vision</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              To be the leading service provider in India, recognized for our operational excellence, commitment to quality, and fostering an environment where both our employees and clients thrive.
+            <div className="absolute top-0 right-0 w-32 h-32 bg-secondary/5 rounded-bl-[5rem] -z-10 group-hover:bg-secondary/10 transition-colors" />
+            <div className="w-16 h-16 rounded-2xl bg-secondary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <Eye className="text-secondary w-8 h-8" />
+            </div>
+            <h2 className="text-4xl font-bold mb-6 tracking-tight">Our Vision</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed font-light">
+              To be the leading service provider in India, recognized for our <span className="text-foreground font-medium">operational excellence</span>, commitment to quality, and fostering an environment where both our employees and clients thrive.
             </p>
           </motion.div>
+
           <motion.div
-            initial={{ opacity: 0, scale: 0.95 }}
-            whileInView={{ opacity: 1, scale: 1 }}
+            initial={{ opacity: 0, x: 30 }}
+            whileInView={{ opacity: 1, x: 0 }}
             viewport={{ once: true }}
             transition={{ delay: 0.2 }}
-            className="rounded-3xl bg-primary/10 border border-primary/20 p-8 md:p-12"
+            className="group relative p-10 md:p-14 rounded-[3rem] bg-white border border-black/[0.03] shadow-[0_30px_70px_rgba(0,0,0,0.04)] hover:shadow-[0_40px_90px_rgba(0,0,0,0.08)] transition-all duration-700 overflow-hidden"
           >
-            <h2 className="text-3xl font-bold mb-4">Our Mission</h2>
-            <p className="text-muted-foreground text-lg leading-relaxed">
-              To empower organizations by providing reliable workforce solutions, robust telecommunication networks, and state-of-the-art digital experiences that drive growth and efficiency.
+            <div className="absolute top-0 right-0 w-32 h-32 bg-primary/5 rounded-bl-[5rem] -z-10 group-hover:bg-primary/10 transition-colors" />
+            <div className="w-16 h-16 rounded-2xl bg-primary/10 flex items-center justify-center mb-8 group-hover:scale-110 transition-transform duration-500">
+              <Target className="text-primary w-8 h-8" />
+            </div>
+            <h2 className="text-4xl font-bold mb-6 tracking-tight">Our Mission</h2>
+            <p className="text-muted-foreground text-lg leading-relaxed font-light">
+              To empower organizations by providing <span className="text-foreground font-medium">reliable workforce solutions</span>, robust telecommunication networks, and state-of-the-art digital experiences that drive growth.
             </p>
           </motion.div>
         </div>
 
-        {/* Core Values */}
-        <div className="mb-24">
-          <div className="text-center mb-12">
-            <h2 className="text-3xl md:text-5xl font-bold">Our Core Values</h2>
+        {/* Core Values Section */}
+        <div className="mb-32 relative">
+          <div className="text-center mb-20">
+            <motion.div
+              initial={{ opacity: 0, scale: 0.9 }}
+              whileInView={{ opacity: 1, scale: 1 }}
+              viewport={{ once: true }}
+              className="inline-flex items-center gap-2 px-4 py-1.5 mb-6 text-xs font-bold tracking-[0.2em] uppercase border border-primary/20 rounded-full bg-primary/5 text-primary"
+            >
+              <Sparkles size={14} />
+              The Vimanasa DNA
+            </motion.div>
+            <h2 className="text-4xl md:text-6xl font-bold tracking-tight">Our Core Values</h2>
           </div>
-          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-6">
+          
+          <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
             {VALUES.map((val, idx) => (
               <motion.div
                 key={val.title}
@@ -124,13 +147,18 @@ export default function AboutPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.1 }}
-                className="glass-card p-8 rounded-3xl"
+                className="group relative p-10 rounded-[2.5rem] bg-white border border-black/[0.02] shadow-[0_20px_50px_rgba(0,0,0,0.03)] hover:shadow-[0_40px_80px_rgba(0,0,0,0.08)] transition-all duration-500 hover:-translate-y-2"
               >
-                <div className="w-12 h-12 rounded-full bg-secondary/20 flex items-center justify-center mb-6">
+                <div className={cn("w-16 h-16 rounded-2xl flex items-center justify-center mb-8 transition-transform duration-500 group-hover:rotate-12", val.color)}>
                   {val.icon}
                 </div>
-                <h3 className="text-xl font-bold mb-3">{val.title}</h3>
-                <p className="text-muted-foreground">{val.desc}</p>
+                <h3 className="text-2xl font-bold mb-4 group-hover:text-primary transition-colors">{val.title}</h3>
+                <p className="text-muted-foreground leading-relaxed text-sm font-light">{val.desc}</p>
+                
+                {/* Subtle numbering */}
+                <div className="absolute top-10 right-10 text-4xl font-black text-black/[0.02] group-hover:text-primary/5 transition-colors">
+                  0{idx + 1}
+                </div>
               </motion.div>
             ))}
           </div>
@@ -185,19 +213,40 @@ export default function AboutPage() {
                   whileInView={{ opacity: 1, scale: 1 }}
                   viewport={{ once: true }}
                   transition={{ delay: idx * 0.1, duration: 0.8 }}
+                  onMouseMove={(e) => {
+                    const rect = e.currentTarget.getBoundingClientRect();
+                    const x = e.clientX - rect.left;
+                    const y = e.clientY - rect.top;
+                    e.currentTarget.style.setProperty("--mouse-x", `${x}px`);
+                    e.currentTarget.style.setProperty("--mouse-y", `${y}px`);
+                  }}
                   className="group relative"
                 >
                   {/* The Prism Card Body */}
                   <div className="relative pt-32 pb-12 px-8 rounded-[4rem] bg-white border border-black/[0.02] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)] group-hover:shadow-[0_60px_120px_-20px_rgba(0,0,0,0.1)] transition-all duration-1000 flex flex-col items-center">
+                    
+                    {/* Internal Animation Container (to avoid cropping the floating image) */}
+                    <div className="absolute inset-0 overflow-hidden rounded-[4rem] pointer-events-none">
+                      {/* Mouse Tracking Glow */}
+                      <div className="absolute inset-0 opacity-0 group-hover:opacity-100 transition-opacity duration-500"
+                        style={{
+                          background: `radial-gradient(600px circle at var(--mouse-x) var(--mouse-y), rgba(var(--primary-rgb, 12, 164, 218), 0.06), transparent 40%)`
+                        } as any}
+                      />
+
+                      {/* Gloss Sweep Effect */}
+                      <div className="absolute inset-0 w-[200%] h-full bg-gradient-to-r from-transparent via-white/20 to-transparent -translate-x-full group-hover:animate-[gloss_2s_ease-in-out_infinite] rotate-45" />
+                    </div>
 
                     {/* Floating Detached Image */}
-                    <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48">
+                    <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 z-30">
                       <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-1000 rounded-full" />
+                      
                       <motion.div
-                        whileHover={{ y: -10, rotateY: 10 }}
-                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        whileHover={{ y: -12, rotateY: 8, rotateX: -5 }}
+                        transition={{ type: "spring", stiffness: 260, damping: 20 }}
                         className={cn(
-                          "relative w-full h-full rounded-[3.5rem] overflow-hidden shadow-2xl border-[6px] border-white z-20 transition-all duration-700",
+                          "relative w-full h-full rounded-[3.5rem] overflow-hidden shadow-2xl border-[6px] border-white transition-all duration-700",
                           !member.image && `bg-gradient-to-br ${member.color} flex items-center justify-center`
                         )}
                       >
@@ -208,27 +257,31 @@ export default function AboutPage() {
                         )}
                       </motion.div>
 
-                      {/* Floating Decorative Rings */}
-                      <div className="absolute -inset-4 border border-primary/5 rounded-[4rem] animate-[spin_15s_linear_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
-                      <div className="absolute -inset-8 border border-secondary/5 rounded-[5rem] animate-[spin_20s_linear_reverse_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+                      {/* Rotating Orbit Halo */}
+                      <div className="absolute -inset-4 border-2 border-primary/10 rounded-[4rem] animate-[spin_10s_linear_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-700 scale-90 group-hover:scale-110" />
+                      <div className="absolute -inset-8 border border-secondary/5 rounded-[5rem] animate-[spin_15s_linear_reverse_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-700 scale-90 group-hover:scale-110" />
                     </div>
 
-                    {/* Content Section */}
-                    <div className="text-center mt-6 w-full">
-                      <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-500">
+                    {/* Content Section with subtle Parallax */}
+                    <motion.div 
+                      whileHover={{ y: -5 }}
+                      transition={{ type: "spring", stiffness: 300, damping: 25 }}
+                      className="text-center mt-6 w-full relative z-10"
+                    >
+                      <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-500 tracking-tight">
                         {member.name}
                       </h3>
 
-                      <div className="inline-flex items-center justify-center px-5 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-black uppercase tracking-widest mb-8 border border-primary/10">
+                      <div className="inline-flex items-center justify-center px-5 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-black uppercase tracking-widest mb-8 border border-primary/10 shadow-sm group-hover:bg-primary group-hover:text-white transition-all duration-500">
                         {member.role.split('&')[0]}
                       </div>
 
-                      <p className="text-muted-foreground text-sm leading-relaxed mb-8 px-4 opacity-60 group-hover:opacity-100 transition-opacity">
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-8 px-4 opacity-60 group-hover:opacity-100 transition-opacity duration-500">
                         {member.bio}
                       </p>
 
                       {/* Social Plate */}
-                      <div className="flex items-center justify-center gap-3 p-2 rounded-2xl bg-black/[0.02] border border-black/[0.03] group-hover:bg-white group-hover:shadow-lg transition-all duration-500">
+                      <div className="flex items-center justify-center gap-3 p-2 rounded-2xl bg-black/[0.02] border border-black/[0.03] group-hover:bg-white group-hover:shadow-xl transition-all duration-700 group-hover:translate-y-[-4px]">
                         <a href="#" className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all">
                           <LinkedinIcon size={18} />
                         </a>
@@ -241,7 +294,7 @@ export default function AboutPage() {
                           <Mail size={18} />
                         </a>
                       </div>
-                    </div>
+                    </motion.div>
                   </div>
                 </motion.div>
               ))}
