@@ -97,7 +97,7 @@ export function Navbar() {
                       {isActive && (
                         <motion.div
                           layoutId="desktop-nav-pill"
-                          className="absolute inset-0 rounded-full bg-white shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-black/5 -z-10"
+                          className="absolute inset-0 rounded-full bg-card shadow-[0_2px_15px_rgba(0,0,0,0.05)] border border-foreground/5 -z-10"
                           transition={{ type: "spring", stiffness: 450, damping: 30 }}
                         />
                       )}
@@ -161,7 +161,7 @@ export function Navbar() {
                       "flex items-center justify-between p-4 rounded-2xl border text-lg font-bold transition-all",
                       pathname === link.href 
                         ? "bg-primary/10 border-primary/20 text-primary" 
-                        : "bg-black/5 border-transparent text-zinc-600"
+                        : "bg-foreground/5 border-transparent text-muted-foreground"
                     )}
                   >
                     {link.name}

@@ -124,10 +124,14 @@ export function Footer() {
                   <span><strong className="text-foreground/80">Registered:</strong> 227, Undegaon, Gangakhed, Parbhani 431514</span>
                 </div>
               </li>
-              <li className="flex items-center gap-3 text-muted-foreground">
-                <Phone size={18} className="text-primary shrink-0" />
-                <span>+91 77980 21323 / +91 95959 97711</span>
-              </li>
+              <div className="flex items-center gap-3 text-muted-foreground hover:text-primary transition-colors">
+                <Phone size={18} className="text-primary" />
+                <div className="flex flex-col sm:flex-row sm:items-center gap-1 sm:gap-2">
+                  <a href="tel:+919921713207" className="hover:underline">9921713207</a>
+                  <span className="hidden sm:inline text-muted-foreground/30">|</span>
+                  <a href="tel:+918669997711" className="hover:underline">8669997711</a>
+                </div>
+              </div>
               <li className="flex items-center gap-3 text-muted-foreground">
                 <Mail size={18} className="text-primary shrink-0" />
                 <span>vimanasaservices@gmail.com</span>

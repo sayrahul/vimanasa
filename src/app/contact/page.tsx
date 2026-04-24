@@ -64,7 +64,10 @@ export default function ContactPage() {
                   </div>
                   <div>
                     <h3 className="font-semibold text-foreground text-lg">Phone Numbers</h3>
-                    <p className="mt-1 leading-relaxed">+91 77980 21323<br/>+91 95959 97711</p>
+                    <div className="flex flex-col gap-1 mt-1">
+                      <a href="tel:+919921713207" className="text-lg font-medium hover:text-primary transition-colors text-foreground">9921713207</a>
+                      <a href="tel:+918669997711" className="text-lg font-medium hover:text-primary transition-colors text-foreground">8669997711</a>
+                    </div>
                   </div>
                 </li>
                 <li className="flex items-start gap-4 text-muted-foreground">

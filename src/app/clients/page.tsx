@@ -56,7 +56,7 @@ export default function ClientsPage() {
               <div className="w-16 h-16 rounded-full bg-secondary/10 flex items-center justify-center mb-4 text-2xl font-black text-secondary group-hover:scale-110 transition-transform">
                 {client.logo}
               </div>
-              <h3 className="font-bold text-center text-white">{client.name}</h3>
+              <h3 className="font-bold text-center text-foreground">{client.name}</h3>
               <p className="text-xs text-muted-foreground text-center mt-1">{client.industry}</p>
             </motion.div>
           ))}
@@ -80,14 +80,14 @@ export default function ClientsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="bg-black/40 rounded-2xl p-6 border border-white/5 backdrop-blur-sm"
+                className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-foreground/5 shadow-sm"
               >
                 <div className="text-primary text-4xl font-serif leading-none mb-4">"</div>
-                <p className="text-white/80 leading-relaxed mb-6 italic">
+                <p className="text-muted-foreground leading-relaxed mb-6 italic">
                   {testi.quote}
                 </p>
                 <div>
-                  <h4 className="font-bold text-white">{testi.author}</h4>
+                  <h4 className="font-bold text-foreground">{testi.author}</h4>
                   <p className="text-sm text-secondary">{testi.position}</p>
                 </div>
               </motion.div>

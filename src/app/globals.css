@@ -101,5 +101,5 @@
 }
 
 .glass-card {
-  @apply bg-foreground/5 backdrop-blur-md border border-foreground/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)];
+  @apply bg-white/70 dark:bg-foreground/5 backdrop-blur-md border border-foreground/10 shadow-[0_8px_32px_rgba(0,0,0,0.05)];
 }
