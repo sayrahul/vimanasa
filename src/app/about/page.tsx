@@ -27,39 +27,44 @@ const LinkedinIcon = ({ size }: { size: number }) => (
 
 const TEAM = [
   {
-    name: "Sanjivan Kamble",
-    role: "Managing Partner & Chief Financial Officer (CFO)",
+    name: "Mr. Sanjivan Kamble",
+    role: "Managing Director",
     initial: "SK",
-    image: null,
-    color: "from-red-600 to-rose-700"
+    image: "/images/team/sanjivan.jpg",
+    color: "from-red-600 to-rose-700",
+    bio: "Architecting robust financial frameworks and guiding the firm’s long-term investments and sustainable growth."
   },
   {
-    name: "Rajudas Rathod",
+    name: "Mr. Rajudas Rathod",
     role: "Chief Executive Officer (CEO) & Technical Director",
     initial: "RR",
     image: null,
-    color: "from-orange-500 to-rose-500"
+    color: "from-orange-500 to-rose-500",
+    bio: "Translating ambitious visions into operational excellence and steering the company’s expansion across all verticals."
   },
   {
-    name: "Gopichand Poul",
+    name: "Adv. Gopichand Poul",
     role: "General Manager – Legal & Liaison",
     initial: "GP",
     image: "/images/team/gopichand.jpg",
-    color: "from-blue-500 to-indigo-500"
+    color: "from-blue-500 to-indigo-500",
+    bio: "Safeguarding corporate integrity, mitigating risks, and ensuring seamless regulatory compliance across all business operations."
   },
   {
-    name: "Rahul Jadhav",
+    name: "Mr.Rahul Jadhav",
     role: "Chief Technology Officer (CTO) & Senior Technical Manager",
     initial: "RJ",
     image: "/images/team/rahul.jpg",
-    color: "from-purple-500 to-pink-500"
+    color: "from-purple-500 to-pink-500",
+    bio: "Architecting the innovative IT and telecommunication infrastructures that power our modern enterprise."
   },
   {
-    name: "Prabhu Rathod",
+    name: "Mr. Prabhu Rathod",
     role: "Head of Corporate Affairs",
     initial: "PR",
     image: "/images/team/prabhu.jpg",
-    color: "from-zinc-500 to-slate-500"
+    color: "from-zinc-500 to-slate-500",
+    bio: "Building bridges between Vimanasa, the community, and key institutions to foster a strong, reputable corporate footprint."
   }
 ];
 
@@ -129,67 +134,120 @@ export default function AboutPage() {
               </motion.div>
             ))}
           </div>
-        </div>
-
-        {/* Leadership Team */}
-        <div className="mb-24">
-          <div className="text-center mb-16">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 whitespace-nowrap">Our Leadership Team</h2>
-            <p className="text-muted-foreground text-lg max-w-2xl mx-auto">
-              Meet the visionaries driving Vimanasa forward with their expertise and dedication.
-            </p>
+        </div>        {/* Leadership Team Section - The Floating Prism Aesthetic */}
+        <section className="relative py-40 mb-24 overflow-hidden bg-white">
+          {/* Animated Mesh-like Background */}
+          <div className="absolute inset-0 pointer-events-none">
+            <motion.div
+              animate={{
+                scale: [1, 1.2, 1],
+                rotate: [0, 90, 0],
+                opacity: [0.05, 0.1, 0.05]
+              }}
+              transition={{ duration: 20, repeat: Infinity, ease: "linear" }}
+              className="absolute top-[-10%] right-[-10%] w-[1000px] h-[1000px] bg-gradient-to-br from-primary via-transparent to-secondary blur-[150px] rounded-full"
+            />
+            <motion.div
+              animate={{
+                scale: [1.2, 1, 1.2],
+                rotate: [90, 0, 90],
+                opacity: [0.03, 0.08, 0.03]
+              }}
+              transition={{ duration: 25, repeat: Infinity, ease: "linear" }}
+              className="absolute bottom-[-10%] left-[-10%] w-[800px] h-[800px] bg-gradient-to-tr from-secondary via-transparent to-primary blur-[130px] rounded-full"
+            />
           </div>
-          <div className="flex flex-wrap justify-center gap-10 max-w-6xl mx-auto">
-            {TEAM.map((member, idx) => (
+
+          <div className="relative z-10 px-6 container mx-auto max-w-7xl">
+            <div className="text-center mb-32">
               <motion.div
-                key={member.name}
-                initial={{ opacity: 0, y: 20 }}
+                initial={{ opacity: 0, y: 10 }}
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
-                whileHover={{ y: -10, transition: { duration: 0.3 } }}
-                transition={{ delay: idx * 0.1 }}
-                className="group relative glass-card p-10 rounded-3xl overflow-hidden hover:border-primary/50 hover:shadow-2xl hover:shadow-primary/10 transition-all duration-500 flex flex-col items-center text-center w-full sm:w-[calc(50%-1.25rem)] lg:w-[calc(33.333%-1.7rem)] min-h-[420px]"
+                className="inline-block px-6 py-2 mb-8 text-[11px] font-black tracking-[0.4em] uppercase border border-black/5 rounded-full bg-white shadow-sm text-primary"
               >
-                <div className="absolute inset-0 bg-gradient-to-br from-primary/5 via-transparent to-secondary/5 opacity-0 group-hover:opacity-100 transition-opacity duration-700" />
-
-                <div className="relative z-10 flex flex-col items-center flex-grow">
-                  <div className={cn(
-                    "w-32 h-32 rounded-3xl rotate-3 group-hover:rotate-6 group-hover:scale-110 flex items-center justify-center mb-6 shadow-xl transition-all duration-500 ease-out overflow-hidden relative",
-                    !member.image && `bg-gradient-to-br ${member.color}`
-                  )}>
-                    {member.image ? (
-                      <img
-                        src={member.image}
-                        alt={member.name}
-                        className="w-full h-full object-cover group-hover:scale-110 transition-transform duration-700"
-                      />
-                    ) : (
-                      <span className="text-4xl font-black text-white tracking-widest">{member.initial}</span>
-                    )}
-                    {/* Gloss effect on image */}
-                    <div className="absolute inset-0 bg-gradient-to-t from-black/20 to-transparent opacity-0 group-hover:opacity-100 transition-opacity" />
-                  </div>
-
-                  <h3 className="text-xl font-bold mb-2 group-hover:text-primary transition-colors leading-tight">{member.name}</h3>
-                  <p className="text-muted-foreground font-medium text-sm leading-relaxed mb-6 group-hover:text-foreground transition-colors">{member.role}</p>
-
-                  {/* Social Links reveal */}
-                  <div className="mt-auto flex gap-3 opacity-0 translate-y-6 group-hover:opacity-100 group-hover:translate-y-0 transition-all duration-500 ease-out">
-                    <a href="#" className="p-2.5 rounded-full bg-foreground/5 hover:bg-primary hover:text-white transition-all duration-300">
-                      <LinkedinIcon size={16} />
-                    </a>
-                    <a href="#" className="p-2.5 rounded-full bg-foreground/5 hover:bg-[#1DA1F2] hover:text-white transition-all duration-300">
-                      <TwitterIcon size={16} />
-                    </a>
-                    <a href="#" className="p-2.5 rounded-full bg-foreground/5 hover:bg-foreground hover:text-background transition-all duration-300">
-                      <Mail size={16} />
-                    </a>
-                  </div>
-                </div>
+                Executive Board
               </motion.div>
-            ))}
+              <h2 className="text-5xl md:text-8xl font-bold tracking-tight text-foreground mb-8">
+                The minds behind <br />
+                <span className="text-transparent bg-clip-text bg-gradient-to-r from-primary to-secondary">Vimanasa.</span>
+              </h2>
+              <p className="text-xl text-muted-foreground max-w-2xl mx-auto leading-relaxed font-light">
+                A multidisciplinary team united by a singular vision: to bridge human potential with technological excellence.
+              </p>
+            </div>
+
+            <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-y-32 gap-x-12">
+              {TEAM.map((member, idx) => (
+                <motion.div
+                  key={member.name}
+                  initial={{ opacity: 0, scale: 0.95 }}
+                  whileInView={{ opacity: 1, scale: 1 }}
+                  viewport={{ once: true }}
+                  transition={{ delay: idx * 0.1, duration: 0.8 }}
+                  className="group relative"
+                >
+                  {/* The Prism Card Body */}
+                  <div className="relative pt-32 pb-12 px-8 rounded-[4rem] bg-white border border-black/[0.02] shadow-[0_40px_100px_-20px_rgba(0,0,0,0.05)] group-hover:shadow-[0_60px_120px_-20px_rgba(0,0,0,0.1)] transition-all duration-1000 flex flex-col items-center">
+
+                    {/* Floating Detached Image */}
+                    <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48">
+                      <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-1000 rounded-full" />
+                      <motion.div
+                        whileHover={{ y: -10, rotateY: 10 }}
+                        transition={{ type: "spring", stiffness: 300, damping: 20 }}
+                        className={cn(
+                          "relative w-full h-full rounded-[3.5rem] overflow-hidden shadow-2xl border-[6px] border-white z-20 transition-all duration-700",
+                          !member.image && `bg-gradient-to-br ${member.color} flex items-center justify-center`
+                        )}
+                      >
+                        {member.image ? (
+                          <img src={member.image} alt={member.name} className="w-full h-full object-cover grayscale-[0.2] group-hover:grayscale-0 transition-all duration-700" />
+                        ) : (
+                          <span className="text-6xl font-black text-white/90 drop-shadow-xl">{member.initial}</span>
+                        )}
+                      </motion.div>
+
+                      {/* Floating Decorative Rings */}
+                      <div className="absolute -inset-4 border border-primary/5 rounded-[4rem] animate-[spin_15s_linear_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+                      <div className="absolute -inset-8 border border-secondary/5 rounded-[5rem] animate-[spin_20s_linear_reverse_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-opacity" />
+                    </div>
+
+                    {/* Content Section */}
+                    <div className="text-center mt-6 w-full">
+                      <h3 className="text-2xl font-bold text-foreground mb-3 group-hover:text-primary transition-colors duration-500">
+                        {member.name}
+                      </h3>
+
+                      <div className="inline-flex items-center justify-center px-5 py-1.5 rounded-full bg-primary/5 text-primary text-[10px] font-black uppercase tracking-widest mb-8 border border-primary/10">
+                        {member.role.split('&')[0]}
+                      </div>
+
+                      <p className="text-muted-foreground text-sm leading-relaxed mb-8 px-4 opacity-60 group-hover:opacity-100 transition-opacity">
+                        {member.bio}
+                      </p>
+
+                      {/* Social Plate */}
+                      <div className="flex items-center justify-center gap-3 p-2 rounded-2xl bg-black/[0.02] border border-black/[0.03] group-hover:bg-white group-hover:shadow-lg transition-all duration-500">
+                        <a href="#" className="p-2.5 rounded-xl text-muted-foreground hover:text-primary hover:bg-primary/5 transition-all">
+                          <LinkedinIcon size={18} />
+                        </a>
+                        <div className="w-px h-4 bg-black/[0.05]" />
+                        <a href="#" className="p-2.5 rounded-xl text-muted-foreground hover:text-[#1DA1F2] hover:bg-[#1DA1F2]/5 transition-all">
+                          <TwitterIcon size={18} />
+                        </a>
+                        <div className="w-px h-4 bg-black/[0.05]" />
+                        <a href="#" className="p-2.5 rounded-xl text-muted-foreground hover:text-foreground hover:bg-black/5 transition-all">
+                          <Mail size={18} />
+                        </a>
+                      </div>
+                    </div>
+                  </div>
+                </motion.div>
+              ))}
+            </div>
           </div>
-        </div>
+        </section>
       </div>
     </div>
   );
