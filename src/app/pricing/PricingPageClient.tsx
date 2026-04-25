@@ -9,127 +9,108 @@ const PRICING_PLANS = [
     name: "Standard Deployment",
     price: "₹1,50,000",
     period: "/month",
-    description: "Perfect for small to medium scale private businesses needing core manpower or basic IT maintenance.",
-    features: [
-      "Up to 10 Security Guards / Staff",
-      "Standard Housekeeping Service",
-      "Basic IT Helpdesk Support",
-      "Standard Client Management Portal",
-      "Monthly Reporting"
-    ],
+    description: "Ideal for small and medium businesses requiring reliable manpower support and essential IT operations.",
+    features: ["Up to 10 staff deployment", "Housekeeping operations", "Basic IT support desk", "Monthly performance reporting", "Compliance-ready documentation"],
     highlighted: false,
   },
   {
     name: "Enterprise Solutions",
     price: "₹5,00,000+",
     period: "/month",
-    description: "Comprehensive coverage for large enterprises and government entities requiring high-tier compliance.",
+    description: "Best for large private organizations and government projects needing high-scale managed operations.",
     features: [
-      "Custom Facility Management Team",
-      "Advanced Armed Security Personnel",
-      "24/7 Dedicated Network Operations (NOC)",
-      "Dedicated Project Manager",
-      "Full API & Digital Suite Access",
-      "Priority SLA Response Time"
+      "Dedicated facility management team",
+      "Priority telecom execution",
+      "24/7 network and escalation coverage",
+      "Project manager and SLA governance",
+      "Custom reporting and integration support",
     ],
     highlighted: true,
   },
   {
-    name: "Digital Marketing Retainer",
+    name: "Digital Growth Retainer",
     price: "₹75,000",
     period: "/month",
-    description: "Amplify your brand presence with our dedicated team of digital creators and SEO experts.",
-    features: [
-      "Comprehensive SEO Strategy",
-      "Social Media Management (4 Platforms)",
-      "Weekly Custom Content Creation",
-      "Performance Analytics & Bi-Weekly Reports",
-      "Paid Ad Campaign Strategy"
-    ],
+    description: "For brands scaling digital visibility through structured marketing and content execution.",
+    features: ["SEO roadmap and audits", "Multi-platform social management", "Weekly content plans", "Paid campaign optimization", "Bi-weekly analytics reporting"],
     highlighted: false,
-  }
+  },
 ];
 
-export default function PricingPage() {
+export default function PricingPageClient() {
   return (
-    <div className="flex flex-col w-full pt-24 pb-12">
-      <div className="container mx-auto px-6 max-w-7xl">
-        <div className="text-center mb-16">
-          <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Flexible Pricing</h1>
-          <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Transparent retainer packages tailored to scale seamlessly with your growing infrastructural and digital needs.
+    <div className="w-full pb-12 pt-28 md:pt-32">
+      <div className="container mx-auto max-w-7xl px-6">
+        <div className="mx-auto mb-14 max-w-3xl text-center">
+          <h1 className="mb-5 text-4xl font-bold tracking-tight md:text-6xl">Flexible Pricing</h1>
+          <p className="text-lg leading-relaxed text-muted-foreground">
+            Transparent monthly packages aligned to deployment complexity, project scale, and delivery expectations.
           </p>
         </div>
 
-        <div className="grid grid-cols-1 md:grid-cols-3 gap-8">
-          {PRICING_PLANS.map((plan, idx) => (
-            <motion.div
+        <div className="grid grid-cols-1 gap-6 md:grid-cols-3">
+          {PRICING_PLANS.map((plan, index) => (
+            <motion.article
               key={plan.name}
-              initial={{ opacity: 0, y: 30 }}
+              initial={{ opacity: 0, y: 16 }}
               whileInView={{ opacity: 1, y: 0 }}
               viewport={{ once: true }}
-              transition={{ delay: idx * 0.15 }}
-              className={`p-8 rounded-3xl relative overflow-hidden flex flex-col ${
-                plan.highlighted 
-                  ? "bg-primary/10 border-2 border-primary" 
-                  : "glass-card border border-border mt-4 md:mt-8"
+              transition={{ delay: index * 0.08 }}
+              className={`flex h-full flex-col rounded-3xl border p-7 shadow-sm ${
+                plan.highlighted ? "border-primary/40 bg-primary/10" : "border-border bg-card"
               }`}
             >
               {plan.highlighted && (
-                <div className="absolute top-0 inset-x-0 h-1 bg-gradient-to-r from-primary to-secondary" />
-              )}
-              {plan.highlighted && (
-                <span className="bg-primary text-white text-xs font-bold uppercase tracking-wider py-1 px-3 rounded-full self-start mb-4">
+                <span className="mb-3 inline-flex w-fit rounded-full bg-primary px-3 py-1 text-xs font-bold uppercase tracking-wider text-primary-foreground">
                   Most Popular
                 </span>
               )}
+              <h2 className="text-2xl font-semibold">{plan.name}</h2>
+              <p className="mt-3 flex-grow text-sm leading-relaxed text-muted-foreground">{plan.description}</p>
 
-              <h2 className="text-2xl font-bold mb-2">{plan.name}</h2>
-              <p className="text-muted-foreground mb-6 text-sm flex-grow">{plan.description}</p>
-              
-              <div className="mb-8">
-                <span className="text-4xl font-extrabold text-foreground">{plan.price}</span>
-                <span className="text-muted-foreground font-medium">{plan.period}</span>
+              <div className="mt-6">
+                <span className="text-4xl font-extrabold">{plan.price}</span>
+                <span className="ml-1 text-muted-foreground">{plan.period}</span>
               </div>
 
-              <ul className="flex flex-col gap-4 mb-8">
-                {plan.features.map((feature, fIdx) => (
-                  <li key={fIdx} className="flex items-start gap-3 text-foreground/90">
-                    <Check size={20} className="text-primary shrink-0 mt-0.5" />
-                    <span className="text-sm">{feature}</span>
+              <ul className="mt-6 space-y-3">
+                {plan.features.map((feature) => (
+                  <li key={feature} className="flex items-start gap-2 text-sm text-foreground/90">
+                    <Check size={16} className="mt-0.5 shrink-0 text-primary" />
+                    <span>{feature}</span>
                   </li>
                 ))}
               </ul>
 
               <Link
                 href="/contact"
-                className={`mt-auto w-full py-4 text-center rounded-xl font-bold transition-all ${
-                  plan.highlighted 
-                    ? "bg-primary hover:bg-primary/90 text-white shadow-[0_0_20px_rgba(12,164,218,0.3)]" 
-                    : "bg-white text-black hover:bg-gray-200"
+                className={`mt-8 rounded-xl px-4 py-3 text-center text-sm font-semibold transition-colors ${
+                  plan.highlighted
+                    ? "bg-primary text-primary-foreground hover:bg-primary/90"
+                    : "border border-border bg-background text-foreground hover:bg-muted"
                 }`}
               >
-                Get Started
+                Request Proposal
               </Link>
-            </motion.div>
+            </motion.article>
           ))}
         </div>
 
-        {/* Custom Requirements Note */}
-        <motion.div 
+        <motion.div
           initial={{ opacity: 0 }}
           whileInView={{ opacity: 1 }}
-          className="mt-16 glass-card border border-border rounded-2xl p-6 md:p-10 flex flex-col md:flex-row items-center gap-6 justify-between max-w-4xl mx-auto"
+          viewport={{ once: true }}
+          className="mx-auto mt-14 flex max-w-4xl flex-col items-start gap-5 rounded-2xl border border-border bg-card p-6 md:flex-row md:items-center md:justify-between"
         >
-          <div className="flex items-start gap-4">
-            <Info className="text-secondary shrink-0 mt-1" size={28} />
+          <div className="flex items-start gap-3">
+            <Info className="mt-1 shrink-0 text-secondary" size={20} />
             <div>
-              <h3 className="text-xl font-bold mb-1">Need a specialized tender quotation?</h3>
-              <p className="text-muted-foreground">For government tenders and highly specific custom infrastructure quotes, contact our specialized corporate relations team.</p>
+              <h3 className="text-lg font-semibold">Need a tender-specific commercial quote?</h3>
+              <p className="mt-1 text-sm text-muted-foreground">For government tenders and customized deployment models, we provide scope-based pricing and compliance documentation.</p>
             </div>
           </div>
-          <Link href="/contact" className="px-8 py-3 rounded-xl border border-secondary text-secondary hover:bg-secondary hover:text-white transition-all font-semibold whitespace-nowrap">
-            Request Quote
+          <Link href="/contact" className="rounded-xl border border-secondary px-5 py-3 text-sm font-semibold text-secondary transition-colors hover:bg-secondary hover:text-secondary-foreground">
+            Talk to Sales
           </Link>
         </motion.div>
       </div>

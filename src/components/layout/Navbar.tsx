@@ -2,8 +2,9 @@
 
 import { useState, useEffect } from "react";
 import Link from "next/link";
+import Image from "next/image";
 import { usePathname } from "next/navigation";
-import { Menu, X, ChevronRight, Home, User, Briefcase, LayoutGrid, MessageSquare, Sparkles } from "lucide-react";
+import { Menu, X, ChevronRight, Home, User, Briefcase, LayoutGrid, Sparkles } from "lucide-react";
 import { motion, AnimatePresence } from "framer-motion";
 import { cn } from "@/lib/utils";
 import { ThemeToggle } from "@/components/ThemeToggle";
@@ -29,11 +30,6 @@ export function Navbar() {
     return () => window.removeEventListener("scroll", handleScroll);
   }, []);
 
-  // Close menu on route change
-  useEffect(() => {
-    setIsOpen(false);
-  }, [pathname]);
-
   return (
     <>
       {/* Desktop & Main Header Wrapper */}
@@ -58,13 +54,9 @@ export function Navbar() {
               <div className="relative">
                 {/* Glow behind the logo */}
                 <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
-                <motion.img 
-                  whileHover={{ scale: 1.05 }}
-                  whileTap={{ scale: 0.95 }}
-                  src="/logo.png" 
-                  alt="Vimanasa Services LLP" 
-                  className="relative h-10 md:h-12 w-auto object-contain transition-transform duration-500 z-10" 
-                />
+                <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
+                  <Image src="/logo.png" alt="Vimanasa Services LLP" width={180} height={48} className="h-10 w-auto object-contain md:h-12" />
+                </motion.div>
               </div>
             </Link>
 
@@ -125,7 +117,7 @@ export function Navbar() {
                   <motion.div
                     whileHover={{ scale: 1.05 }}
                     whileTap={{ scale: 0.95 }}
-                    className="relative flex items-center gap-2 px-5 lg:px-6 py-2.5 rounded-full bg-black text-white text-sm font-bold shadow-xl overflow-hidden whitespace-nowrap"
+                    className="relative flex items-center gap-2 px-5 lg:px-6 py-2.5 rounded-full bg-black text-white text-sm font-bold shadow-xl overflow-hidden whitespace-nowrap hover:bg-black"
                   >
                     <span className="relative z-10 hidden lg:inline-block"><Sparkles size={16} className="text-primary" /></span>
                     <span className="relative z-10">Get in Touch</span>
@@ -155,10 +147,11 @@ export function Navbar() {
                   animate={{ opacity: 1, x: 0 }}
                   transition={{ delay: idx * 0.05 }}
                 >
-                  <Link
-                    href={link.href}
-                    className={cn(
-                      "flex items-center justify-between p-4 rounded-2xl border text-lg font-bold transition-all",
+                    <Link
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className={cn(
+                        "flex items-center justify-between p-4 rounded-2xl border text-lg font-bold transition-all",
                       pathname === link.href 
                         ? "bg-primary/10 border-primary/20 text-primary" 
                         : "bg-foreground/5 border-transparent text-muted-foreground"
@@ -179,8 +172,8 @@ export function Navbar() {
             >
               <div className="relative z-10">
                 <h3 className="text-2xl font-bold mb-2">Ready to start?</h3>
-                <p className="text-white/80 mb-6 font-medium">Let's discuss your next big project today.</p>
-                <Link href="/contact" className="inline-block bg-white text-primary px-8 py-3 rounded-full font-bold shadow-lg">
+                <p className="text-white/80 mb-6 font-medium">Let&apos;s discuss your next big project today.</p>
+                <Link href="/contact" onClick={() => setIsOpen(false)} className="inline-block bg-white text-primary px-8 py-3 rounded-full font-bold shadow-lg">
                   Get in Touch
                 </Link>
               </div>

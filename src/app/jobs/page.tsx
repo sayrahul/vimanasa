@@ -17,6 +17,86 @@ export const metadata: Metadata = buildPageMetadata({
 export default function JobsPage() {
   const siteUrl = getSiteUrl();
   const pageUrl = `${siteUrl}/jobs`;
+  const baseDatePosted = "2026-04-25";
+  const validThrough = "2026-12-31T23:59";
+  const organization = {
+    "@type": "Organization",
+    name: SITE_NAME,
+    sameAs: siteUrl,
+    logo: `${siteUrl}/logo.png`,
+  };
+
+  const jobPostings = [
+    {
+      "@type": "JobPosting",
+      title: "Senior Network Engineer",
+      description:
+        "Design, implement, and maintain telecommunications networks for enterprise and institutional clients while ensuring uptime, security, and documentation compliance.",
+      datePosted: baseDatePosted,
+      validThrough,
+      employmentType: "FULL_TIME",
+      identifier: {
+        "@type": "PropertyValue",
+        name: SITE_NAME,
+        value: "VIM-CAREER-001",
+      },
+      hiringOrganization: organization,
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Pune",
+          addressRegion: "Maharashtra",
+          addressCountry: "IN",
+        },
+      },
+    },
+    {
+      "@type": "JobPosting",
+      title: "Security Guard (Tender)",
+      description:
+        "Provide on-ground security coverage for government and enterprise sites, including patrol checks, access control, and incident reporting.",
+      datePosted: baseDatePosted,
+      validThrough,
+      employmentType: "CONTRACTOR",
+      identifier: {
+        "@type": "PropertyValue",
+        name: SITE_NAME,
+        value: "VIM-CAREER-002",
+      },
+      hiringOrganization: organization,
+      jobLocation: {
+        "@type": "Place",
+        address: {
+          "@type": "PostalAddress",
+          addressLocality: "Mumbai",
+          addressRegion: "Maharashtra",
+          addressCountry: "IN",
+        },
+      },
+    },
+    {
+      "@type": "JobPosting",
+      title: "Frontend Next.js Developer",
+      description:
+        "Build performant and accessible interfaces using Next.js and modern UI systems, focusing on quality, scalability, and brand-consistent UX.",
+      datePosted: baseDatePosted,
+      validThrough,
+      employmentType: "FULL_TIME",
+      identifier: {
+        "@type": "PropertyValue",
+        name: SITE_NAME,
+        value: "VIM-CAREER-003",
+      },
+      hiringOrganization: organization,
+      jobLocationType: "TELECOMMUTE",
+      applicantLocationRequirements: {
+        "@type": "Country",
+        name: "IN",
+      },
+    },
+  ];
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -30,77 +110,11 @@ export default function JobsPage() {
       {
         "@type": "ItemList",
         name: "Open Roles",
-        itemListElement: [
-          {
-            "@type": "ListItem",
-            position: 1,
-            item: {
-              "@type": "JobPosting",
-              title: "Technical Project Manager",
-              employmentType: "FULL_TIME",
-              hiringOrganization: {
-                "@type": "Organization",
-                name: SITE_NAME,
-                sameAs: siteUrl,
-              },
-              jobLocation: {
-                "@type": "Place",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Chhatrapati Sambhajinagar",
-                  addressRegion: "Maharashtra",
-                  addressCountry: "IN",
-                },
-              },
-            },
-          },
-          {
-            "@type": "ListItem",
-            position: 2,
-            item: {
-              "@type": "JobPosting",
-              title: "Telecom Field Engineer",
-              employmentType: "FULL_TIME",
-              hiringOrganization: {
-                "@type": "Organization",
-                name: SITE_NAME,
-                sameAs: siteUrl,
-              },
-              jobLocation: {
-                "@type": "Place",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Pune",
-                  addressRegion: "Maharashtra",
-                  addressCountry: "IN",
-                },
-              },
-            },
-          },
-          {
-            "@type": "ListItem",
-            position: 3,
-            item: {
-              "@type": "JobPosting",
-              title: "Business Development Executive",
-              employmentType: "FULL_TIME",
-              hiringOrganization: {
-                "@type": "Organization",
-                name: SITE_NAME,
-                sameAs: siteUrl,
-              },
-              jobLocation: {
-                "@type": "Place",
-                address: {
-                  "@type": "PostalAddress",
-                  addressLocality: "Mumbai",
-                  addressRegion: "Maharashtra",
-                  addressCountry: "IN",
-                },
-              },
-            },
-          },
-        ],
+        itemListElement: jobPostings.map((item, index) => ({
+          "@type": "ListItem",
+          position: index + 1,
+          item,
+        })),
       },
     ],
   };

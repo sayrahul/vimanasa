@@ -65,7 +65,7 @@ export default function ClientsPage() {
         {/* Testimonials */}
         <div className="relative rounded-3xl bg-secondary/10 border border-secondary/20 p-8 md:p-16 overflow-hidden">
           <div className="absolute top-0 right-0 p-12 opacity-5">
-             <span className="text-9xl font-serif">"</span>
+             <span className="text-9xl font-serif">&ldquo;</span>
           </div>
           
           <div className="text-center mb-12 relative z-10">
@@ -80,9 +80,9 @@ export default function ClientsPage() {
                 whileInView={{ opacity: 1, y: 0 }}
                 viewport={{ once: true }}
                 transition={{ delay: idx * 0.15 }}
-                className="bg-white dark:bg-zinc-900 rounded-2xl p-6 border border-foreground/5 shadow-sm"
+                className="bg-card rounded-2xl p-6 border border-border shadow-sm"
               >
-                <div className="text-primary text-4xl font-serif leading-none mb-4">"</div>
+                <div className="text-primary text-4xl font-serif leading-none mb-4">&ldquo;</div>
                 <p className="text-muted-foreground leading-relaxed mb-6 italic">
                   {testi.quote}
                 </p>

@@ -31,6 +31,7 @@ export default function ContactPage() {
         "@type": "Organization",
         name: SITE_NAME,
         url: siteUrl,
+        logo: `${siteUrl}/logo.png`,
         email: "vimanasaservices@gmail.com",
         telephone: "+91-9921713207",
         contactPoint: [
@@ -61,6 +62,23 @@ export default function ContactPage() {
             addressCountry: "IN",
           },
         ],
+      },
+      {
+        "@type": "LocalBusiness",
+        name: SITE_NAME,
+        url: siteUrl,
+        image: `${siteUrl}/logo.png`,
+        telephone: "+91-9921713207",
+        email: "vimanasaservices@gmail.com",
+        areaServed: "IN",
+        address: {
+          "@type": "PostalAddress",
+          streetAddress: "Nath Valley Road, Kanchanwadi",
+          addressLocality: "Chhatrapati Sambhajinagar",
+          addressRegion: "Maharashtra",
+          postalCode: "431001",
+          addressCountry: "IN",
+        },
       },
     ],
   };

@@ -16,6 +16,24 @@ export const metadata: Metadata = buildPageMetadata({
 
 export default function HomePage() {
   const siteUrl = getSiteUrl();
+  const faqItems = [
+    {
+      question: "Which industries do you serve?",
+      answer:
+        "We serve private enterprises, public infrastructure initiatives, healthcare organizations, institutions, and government departments.",
+    },
+    {
+      question: "Can Vimanasa manage staffing and telecom work together?",
+      answer:
+        "Yes, we support integrated delivery models that combine manpower, telecom execution, and digital support under one team.",
+    },
+    {
+      question: "Do you provide custom commercial proposals?",
+      answer:
+        "Yes, we provide custom proposals based on site conditions, service scope, timeline requirements, and compliance needs.",
+    },
+  ];
+
   const structuredData = {
     "@context": "https://schema.org",
     "@graph": [
@@ -37,6 +55,17 @@ export default function HomePage() {
           name: SITE_NAME,
           url: siteUrl,
         },
+      },
+      {
+        "@type": "FAQPage",
+        mainEntity: faqItems.map((faq) => ({
+          "@type": "Question",
+          name: faq.question,
+          acceptedAnswer: {
+            "@type": "Answer",
+            text: faq.answer,
+          },
+        })),
       },
     ],
   };

@@ -1,8 +1,9 @@
 "use client";
 
+import { useState } from "react";
 import { motion } from "framer-motion";
 import Link from "next/link";
-import { ArrowRight, Users, Shield, Server, ArrowUpRight } from "lucide-react";
+import { ArrowRight, Users, Shield, Server, ArrowUpRight, ChevronDown } from "lucide-react";
 
 const SERVICES = [
   {
@@ -26,6 +27,30 @@ const SERVICES = [
 ];
 
 export default function Home() {
+  const [openFaq, setOpenFaq] = useState<number | null>(0);
+  const faqs = [
+    {
+      question: "Which industries do you serve?",
+      answer:
+        "We work with private enterprises, public infrastructure programs, healthcare organizations, institutions, and government departments.",
+    },
+    {
+      question: "Do you handle both staffing and telecom projects together?",
+      answer:
+        "Yes. We support blended engagement models where manpower, telecom implementation, and digital operations are managed through one delivery team.",
+    },
+    {
+      question: "Can we request a custom proposal instead of a fixed package?",
+      answer:
+        "Absolutely. We create scope-based proposals with compliance notes, deployment timelines, and commercial structure tailored to your requirement.",
+    },
+    {
+      question: "How quickly can your team begin execution?",
+      answer:
+        "After requirement confirmation, kickoff timelines typically range from 3 to 14 days depending on project complexity and geography.",
+    },
+  ];
+
   return (
     <div className="flex flex-col w-full overflow-hidden">
       {/* Hero Section */}
@@ -156,6 +181,34 @@ export default function Home() {
           >
             Start Your Project Now
           </Link>
+        </div>
+      </section>
+
+      <section className="py-24 border-t border-border/50">
+        <div className="container mx-auto px-6 max-w-4xl">
+          <div className="text-center mb-10">
+            <h2 className="text-3xl md:text-5xl font-bold">Frequently Asked Questions</h2>
+            <p className="mt-3 text-muted-foreground">Quick answers for teams evaluating Vimanasa as a long-term service partner.</p>
+          </div>
+          <div className="space-y-4">
+            {faqs.map((faq, index) => {
+              const isOpen = openFaq === index;
+              return (
+                <div key={faq.question} className="rounded-2xl border border-border bg-card">
+                  <button
+                    type="button"
+                    onClick={() => setOpenFaq(isOpen ? null : index)}
+                    className="flex w-full items-center justify-between gap-4 px-6 py-5 text-left"
+                    aria-expanded={isOpen}
+                  >
+                    <span className="font-semibold">{faq.question}</span>
+                    <ChevronDown className={`h-5 w-5 text-primary transition-transform ${isOpen ? "rotate-180" : ""}`} />
+                  </button>
+                  {isOpen && <p className="px-6 pb-5 text-sm leading-relaxed text-muted-foreground">{faq.answer}</p>}
+                </div>
+              );
+            })}
+          </div>
         </div>
       </section>
     </div>

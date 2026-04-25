@@ -1,17 +1,27 @@
 "use client";
 
 import { useState } from "react";
+import type { ReactElement } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import { Users, Server, Shield, CheckCircle2 } from "lucide-react";
 import { cn } from "@/lib/utils";
 
-const TABS = [
+const TABS: Array<{ id: ServiceTab; label: string; icon: ReactElement }> = [
   { id: "manpower", label: "Manpower", icon: <Users size={18} /> },
   { id: "telecom", label: "Telecom", icon: <Server size={18} /> },
   { id: "it", label: "IT & Digital", icon: <Shield size={18} /> },
 ];
 
-const CONTENT: Record<string, any> = {
+type ServiceTab = "manpower" | "telecom" | "it";
+
+type ServiceContent = {
+  title: string;
+  description: string;
+  features: string[];
+  color: string;
+};
+
+const CONTENT: Record<ServiceTab, ServiceContent> = {
   manpower: {
     title: "Comprehensive Manpower Outsourcing",
     description: "Providing skilled, semi-skilled, and unskilled workforce solutions tailored to government and private sector needs.",
@@ -51,7 +61,7 @@ const CONTENT: Record<string, any> = {
 };
 
 export default function ServicesPage() {
-  const [activeTab, setActiveTab] = useState("manpower");
+  const [activeTab, setActiveTab] = useState<ServiceTab>("manpower");
 
   return (
     <div className="flex flex-col w-full pt-24 pb-12">
@@ -72,7 +82,7 @@ export default function ServicesPage() {
                 onClick={() => setActiveTab(tab.id)}
                 className={cn(
                   "relative flex items-center gap-2 px-6 py-3 rounded-xl font-medium text-sm transition-colors",
-                  activeTab === tab.id ? "text-white" : "text-muted-foreground hover:text-white"
+                  activeTab === tab.id ? "text-white" : "text-muted-foreground hover:text-foreground"
                 )}
               >
                 {activeTab === tab.id && (

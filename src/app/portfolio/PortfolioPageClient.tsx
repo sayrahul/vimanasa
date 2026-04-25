@@ -58,7 +58,7 @@ export default function PortfolioPage() {
                 </h3>
                 
                 {/* Hover Action */}
-                <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-white text-black flex items-center justify-center opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300 delay-100">
+                <div className="absolute top-6 right-6 w-12 h-12 rounded-full bg-card text-foreground border border-border flex items-center justify-center opacity-0 group-hover:opacity-100 scale-50 group-hover:scale-100 transition-all duration-300 delay-100">
                   <ExternalLink size={20} />
                 </div>
               </div>

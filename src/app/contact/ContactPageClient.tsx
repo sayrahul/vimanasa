@@ -26,7 +26,7 @@ export default function ContactPage() {
         <div className="text-center mb-16">
           <h1 className="text-5xl md:text-7xl font-bold mb-6 tracking-tight">Contact Us</h1>
           <p className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto">
-            Ready to scale your business? Get in touch with our team today and let's discuss how we can help.
+            Ready to scale your business? Get in touch with our team today and let&apos;s discuss how we can help.
           </p>
         </div>
 
@@ -104,7 +104,7 @@ export default function ContactPage() {
           >
             <form onSubmit={handleSubmit} className="glass-card p-8 md:p-12 rounded-3xl border border-border flex flex-col gap-6">
               <h2 className="text-3xl font-bold mb-2">Send us a message</h2>
-              <p className="text-muted-foreground mb-4">Fill out the form below and we'll get back to you within 24 hours.</p>
+              <p className="text-muted-foreground mb-4">Fill out the form below and we&apos;ll get back to you within 24 hours.</p>
 
               <div className="flex flex-col gap-2">
                 <label htmlFor="name" className="text-sm font-medium text-foreground/80">Full Name</label>

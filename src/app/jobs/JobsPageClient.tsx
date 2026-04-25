@@ -1,9 +1,8 @@
 "use client";
 
 import { motion, AnimatePresence } from "framer-motion";
-import { Briefcase, MapPin, Clock, Search, ChevronRight, X, Sparkles, Building, Users } from "lucide-react";
+import { Briefcase, MapPin, Clock, ChevronRight, X, Sparkles } from "lucide-react";
 import { useState } from "react";
-import { cn } from "@/lib/utils";
 
 const JOB_LISTINGS = [
   { id: 1, title: "Senior Network Engineer", category: "Telecom", location: "Pune, MH", type: "Full-Time", experience: "5-7 Years", description: "Design, implement, and maintain advanced telecommunications networks. Ensure network uptime and robust security protocols for our enterprise clients." },
@@ -59,7 +58,7 @@ export default function JobsPage() {
             transition={{ duration: 0.6, delay: 0.2 }}
             className="text-xl text-muted-foreground leading-relaxed max-w-2xl mx-auto"
           >
-            We're building a network of exceptional talent across Telecom, Manpower, and deep-tech IT. Discover your next big leap with us.
+            We&apos;re building a network of exceptional talent across Telecom, Manpower, and deep-tech IT. Discover your next big leap with us.
           </motion.p>
         </div>
 

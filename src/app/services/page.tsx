@@ -23,6 +23,8 @@ export default function ServicesPage() {
       {
         "@type": "Service",
         name: "Business Services by Vimanasa",
+        description:
+          "Integrated manpower outsourcing, telecommunications implementation, and IT solution delivery for enterprise and government clients.",
         serviceType: [
           "Manpower Outsourcing",
           "Telecommunications Infrastructure",
@@ -33,16 +35,31 @@ export default function ServicesPage() {
           name: SITE_NAME,
           url: siteUrl,
         },
-        areaServed: "IN",
+        areaServed: {
+          "@type": "Country",
+          name: "IN",
+        },
         url: pageUrl,
       },
       {
         "@type": "OfferCatalog",
         name: "Service Catalog",
         itemListElement: [
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Manpower Outsourcing" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "Telecommunications Projects" } },
-          { "@type": "Offer", itemOffered: { "@type": "Service", name: "IT & Digital Agency Services" } },
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            itemOffered: { "@type": "Service", name: "Manpower Outsourcing" },
+          },
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            itemOffered: { "@type": "Service", name: "Telecommunications Projects" },
+          },
+          {
+            "@type": "Offer",
+            availability: "https://schema.org/InStock",
+            itemOffered: { "@type": "Service", name: "IT & Digital Agency Services" },
+          },
         ],
       },
     ],

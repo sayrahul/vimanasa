@@ -2,7 +2,6 @@
 
 import { motion } from "framer-motion";
 import { ArrowRight, Calendar, User } from "lucide-react";
-import Link from "next/link";
 
 const BLOG_POSTS = [
   {
@@ -79,12 +78,12 @@ export default function BlogPage() {
                 {post.excerpt}
               </p>
 
-              <div className="flex items-center justify-between mt-auto pt-6 border-t border-white/5">
+              <div className="flex items-center justify-between mt-auto pt-6 border-t border-border">
                 <div className="flex items-center gap-4 text-sm text-muted-foreground">
                   <div className="flex items-center gap-1.5"><Calendar size={16} />{post.date}</div>
                   <div className="flex items-center gap-1.5"><User size={16} />{post.author}</div>
                 </div>
-                <button className="w-10 h-10 rounded-full bg-white text-black flex items-center justify-center group-hover:bg-primary group-hover:text-white transition-colors">
+                <button className="w-10 h-10 rounded-full bg-card border border-border text-foreground flex items-center justify-center group-hover:bg-primary group-hover:text-primary-foreground transition-colors">
                   <ArrowRight size={18} />
                 </button>
               </div>
