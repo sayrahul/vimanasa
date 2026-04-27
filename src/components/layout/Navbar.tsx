@@ -55,7 +55,7 @@ export function Navbar() {
                 {/* Glow behind the logo */}
                 <div className="absolute inset-0 bg-primary/30 blur-2xl rounded-full scale-150 opacity-0 group-hover:opacity-100 transition-opacity duration-700 pointer-events-none" />
                 <motion.div whileHover={{ scale: 1.05 }} whileTap={{ scale: 0.95 }} className="relative z-10">
-                  <Image src="/logo.png" alt="Vimanasa Services LLP" width={180} height={48} className="h-10 w-auto object-contain md:h-12" />
+                  <Image src="/logo.png" alt="Vimanasa Services" width={180} height={48} className="h-10 w-auto object-contain md:h-12" />
                 </motion.div>
               </div>
             </Link>

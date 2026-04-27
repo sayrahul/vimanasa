@@ -5,7 +5,7 @@ import { buildPageMetadata, getSiteUrl, SITE_NAME } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Contact",
   description:
-    "Contact Vimanasa Services LLP for manpower outsourcing, telecom deployments, IT projects, and tender-related business inquiries.",
+    "Contact Vimanasa Services for manpower outsourcing, telecom deployments, IT projects, and tender-related business inquiries.",
   path: "/contact",
   keywords: [
     "contact staffing company",
@@ -25,7 +25,7 @@ export default function ContactPage() {
         name: "Contact",
         url: pageUrl,
         description:
-          "Contact Vimanasa Services LLP for manpower outsourcing, telecom deployments, IT projects, and tender-related business inquiries.",
+          "Contact Vimanasa Services for manpower outsourcing, telecom deployments, IT projects, and tender-related business inquiries.",
       },
       {
         "@type": "Organization",

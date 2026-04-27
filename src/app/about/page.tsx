@@ -5,7 +5,7 @@ import { buildPageMetadata, getSiteUrl, SITE_NAME } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "About Us",
   description:
-    "Learn about Vimanasa Services LLP, our leadership, mission, values, and commitment to delivering reliable manpower, telecom, and IT services.",
+    "Learn about Vimanasa Services, our leadership, mission, values, and commitment to delivering reliable manpower, telecom, and IT services.",
   path: "/about",
   keywords: [
     "about vimanasa services",
@@ -25,7 +25,7 @@ export default function AboutPage() {
         name: "About Us",
         url: pageUrl,
         description:
-          "Learn about Vimanasa Services LLP, our leadership, mission, values, and commitment to delivering reliable manpower, telecom, and IT services.",
+          "Learn about Vimanasa Services, our leadership, mission, values, and commitment to delivering reliable manpower, telecom, and IT services.",
       },
       {
         "@type": "BreadcrumbList",

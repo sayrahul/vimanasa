@@ -98,7 +98,7 @@ export default function AboutPageClient() {
             Building growth through <span className="text-primary">people and technology</span>
           </h1>
           <p className="text-lg leading-relaxed text-muted-foreground">
-            Vimanasa Services LLP is a multidisciplinary service company delivering manpower outsourcing, telecom infrastructure, and digital solutions for private and government organizations.
+            Vimanasa Services is a multidisciplinary service company delivering manpower outsourcing, telecom infrastructure, and digital solutions for private and government organizations.
           </p>
         </motion.div>
 

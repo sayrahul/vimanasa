@@ -5,7 +5,7 @@ import { buildPageMetadata, getSiteUrl, SITE_NAME, SITE_TAGLINE } from "@/lib/se
 export const metadata: Metadata = buildPageMetadata({
   title: "Home",
   description:
-    "Vimanasa Services LLP empowers organizations with manpower outsourcing, telecom infrastructure, and IT-led digital transformation services across India.",
+    "Vimanasa Services empowers organizations with manpower outsourcing, telecom infrastructure, and IT-led digital transformation services across India.",
   path: "/",
   keywords: [
     "manpower outsourcing",
@@ -49,7 +49,7 @@ export default function HomePage() {
         name: "Home",
         url: siteUrl,
         description:
-          "Vimanasa Services LLP empowers organizations with manpower outsourcing, telecom infrastructure, and IT-led digital transformation services across India.",
+          "Vimanasa Services empowers organizations with manpower outsourcing, telecom infrastructure, and IT-led digital transformation services across India.",
         isPartOf: {
           "@type": "WebSite",
           name: SITE_NAME,

@@ -4,7 +4,7 @@ import { buildPageMetadata, getSiteUrl, SITE_NAME } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Terms and Conditions",
   description:
-    "Review terms and conditions for use of the Vimanasa Services LLP website and service-related communications.",
+    "Review terms and conditions for use of the Vimanasa Services website and service-related communications.",
   path: "/terms-and-conditions",
   keywords: ["terms and conditions", "service terms", "website usage terms"],
 });
@@ -38,7 +38,7 @@ export default function TermsAndConditionsPage() {
           </section>
           <section>
             <h2 className="mb-2 text-xl font-semibold text-foreground">Content and Intellectual Property</h2>
-            <p>All brand assets, written content, and design elements are owned by Vimanasa Services LLP unless otherwise stated. Unauthorized reuse is prohibited.</p>
+            <p>All brand assets, written content, and design elements are owned by Vimanasa Services unless otherwise stated. Unauthorized reuse is prohibited.</p>
           </section>
           <section>
             <h2 className="mb-2 text-xl font-semibold text-foreground">Commercial Information</h2>

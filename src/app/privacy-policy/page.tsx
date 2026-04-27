@@ -4,7 +4,7 @@ import { buildPageMetadata, getSiteUrl, SITE_NAME } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Privacy Policy",
   description:
-    "Read the privacy policy for Vimanasa Services LLP, including data usage, retention, and communication practices.",
+    "Read the privacy policy for Vimanasa Services, including data usage, retention, and communication practices.",
   path: "/privacy-policy",
   keywords: ["privacy policy", "data protection", "website privacy notice"],
 });

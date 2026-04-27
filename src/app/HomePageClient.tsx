@@ -91,7 +91,7 @@ export default function Home() {
               transition={{ duration: 0.5, delay: 0.2, ease: "easeOut" }}
               className="text-lg md:text-xl text-muted-foreground max-w-2xl mt-4 leading-relaxed text-balance"
             >
-              Vimanasa Services LLP delivers unparalleled manpower solutions, advanced telecommunications infrastructure, and cutting-edge digital creations.
+              Vimanasa Services delivers unparalleled manpower solutions, advanced telecommunications infrastructure, and cutting-edge digital creations.
             </motion.p>
 
             <motion.div

@@ -1,6 +1,6 @@
 import type { Metadata } from "next";
 
-export const SITE_NAME = "Vimanasa Services LLP";
+export const SITE_NAME = "Vimanasa Services";
 export const SITE_TAGLINE = "Manpower, Telecom, and IT Solutions";
 export const DEFAULT_OG_IMAGE = "/logo.png";
 

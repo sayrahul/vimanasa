@@ -5,7 +5,7 @@ import { buildPageMetadata, getSiteUrl, SITE_NAME } from "@/lib/seo";
 export const metadata: Metadata = buildPageMetadata({
   title: "Careers",
   description:
-    "Apply for open roles at Vimanasa Services LLP and grow your career in manpower operations, telecom engineering, and digital innovation.",
+    "Apply for open roles at Vimanasa Services and grow your career in manpower operations, telecom engineering, and digital innovation.",
   path: "/jobs",
   keywords: [
     "jobs in manpower services",
@@ -105,7 +105,7 @@ export default function JobsPage() {
         name: "Careers",
         url: pageUrl,
         description:
-          "Apply for open roles at Vimanasa Services LLP and grow your career in manpower operations, telecom engineering, and digital innovation.",
+          "Apply for open roles at Vimanasa Services and grow your career in manpower operations, telecom engineering, and digital innovation.",
       },
       {
         "@type": "ItemList",
