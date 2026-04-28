@@ -88,6 +88,17 @@ export function Footer() {
             <Link href="/terms-and-conditions" className="hover:text-foreground">Terms & Conditions</Link>
           </div>
         </div>
+
+        <div className="mt-8 flex justify-center pb-24 md:pb-4">
+          <a
+            href="https://www.proventure.in/"
+            target="_blank"
+            rel="noopener noreferrer"
+            className="inline-flex items-center justify-center rounded-full border border-border/50 bg-background/50 px-6 py-2.5 text-sm font-medium text-muted-foreground transition-all hover:bg-background hover:text-foreground"
+          >
+            Designed & Developed by <span className="ml-1.5 font-bold text-[#F59E0B]">ProVenture Digital Agency</span>
+          </a>
+        </div>
       </div>
     </footer>
   );
