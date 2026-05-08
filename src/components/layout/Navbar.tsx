@@ -14,7 +14,7 @@ const NAV_LINKS = [
   { name: "About Us", href: "/about", icon: User },
   { name: "Services", href: "/services", icon: LayoutGrid },
   { name: "Portfolio", href: "/portfolio", icon: Sparkles },
-  { name: "Jobs", href: "/jobs", icon: Briefcase },
+  { name: "Jobs", href: "https://nexus.vimanasa.com/jobs", icon: Briefcase },
 ];
 
 export function Navbar() {

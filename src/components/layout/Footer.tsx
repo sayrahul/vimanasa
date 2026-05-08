@@ -9,7 +9,7 @@ const FOOTER_LINKS = {
     { label: "About Us", href: "/about" },
     { label: "Services", href: "/services" },
     { label: "Portfolio", href: "/portfolio" },
-    { label: "Careers", href: "/jobs" },
+    { label: "Careers", href: "https://nexus.vimanasa.com/jobs" },
     { label: "Contact", href: "/contact" },
   ],
   resources: [
