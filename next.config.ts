@@ -11,6 +11,15 @@ const nextConfig: NextConfig = {
       },
     ],
   },
+  async redirects() {
+    return [
+      {
+        source: "/jobs",
+        destination: "https://nexus.vimanasa.com/jobs",
+        permanent: false,
+      },
+    ];
+  },
 };
 
 export default nextConfig;
