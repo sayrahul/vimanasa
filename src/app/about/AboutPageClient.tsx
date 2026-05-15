@@ -45,8 +45,8 @@ const LinkedinIcon = ({ size }: { size: number }) => (
 const TEAM = [
   {
     name: "Mr. Sanjivan Kamble",
-    role: "Managing Director",    
-    image: "/images/team/sanjivan.jpg",
+    role: "Managing Director",
+    image: null,
     initial: "SK",
     color: "from-red-600 to-rose-700",
     bio: "Architecting robust financial frameworks and guiding the firm’s long-term investments and sustainable growth."
@@ -78,7 +78,7 @@ const TEAM = [
   {
     name: "Mr. Prabhu Rathod",
     role: "Head of Corporate Affairs",
-    image: "/images/team/prabhu.jpg",
+    image: null,
     initial: "PR",
     color: "from-zinc-500 to-slate-500",
     bio: "Building bridges between Vimanasa, the community, and key institutions to foster a strong, reputable corporate footprint."
@@ -217,7 +217,7 @@ export default function AboutPageClient() {
 
                     <div className="absolute -top-20 left-1/2 -translate-x-1/2 w-48 h-48 z-30">
                       <div className="absolute inset-0 bg-primary/20 blur-3xl opacity-0 group-hover:opacity-60 transition-opacity duration-1000 rounded-full" />
-                      
+
                       <motion.div
                         whileHover={{ y: -12, rotateY: 8, rotateX: -5 }}
                         transition={{ type: "spring", stiffness: 260, damping: 20 }}
@@ -237,7 +237,7 @@ export default function AboutPageClient() {
                       <div className="absolute -inset-8 border border-secondary/5 rounded-[5rem] animate-[spin_15s_linear_reverse_infinite] pointer-events-none opacity-0 group-hover:opacity-100 transition-all duration-700 scale-90 group-hover:scale-110" />
                     </div>
 
-                    <motion.div 
+                    <motion.div
                       whileHover={{ y: -5 }}
                       transition={{ type: "spring", stiffness: 300, damping: 25 }}
                       className="text-center mt-6 w-full relative z-10"
